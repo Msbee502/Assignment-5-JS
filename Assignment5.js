@@ -16,9 +16,9 @@ const account = {
         // this function should be able to deposit money onto the balance of the account 
         if (amount > 0) {
             this.balance += amount;
-            console.log(`Deposited: $${amount}. New balance: $${this.balance}`);
+            return `Deposited: $${amount}. New balance: $${this.balance}`;
         } else {
-            console.log("No amount is deposited");
+            return `No amount is deposited`;
         }
 
     },
@@ -77,7 +77,7 @@ function atm(){
         )
     );
 
-    switch (choice) {
+    switch (choice) { 
         case 1: alert(`Your balance is $${account.getBalance()}`); //Balance
         break;
 
