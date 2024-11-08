@@ -55,10 +55,10 @@ const account = {
 
     exit() {
         if (confirm("Are you sure you want to exit?")) {
-            console.log("You have exited your account.");
+            return `You have exited your account.`;
             this.password = null;
         } else {
-            console.log("Exit canceled.");
+            return `Exit canceled.`;
         }
     }
 
@@ -107,6 +107,6 @@ function atm(){
     }
 }
 
-// console.log(atm());
+console.log(atm());
 // console.log(account.exit ());
 // console.log(account.deposit(1000));
