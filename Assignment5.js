@@ -47,11 +47,11 @@ const account = {
     
         if (accountName !== this.accountName) {
             this.attempts++;
-            return this.accountError(`Wrong username! You have ${this.maxAttempts - this.attempt}more tries.`);
+            return this.accountError(`Wrong username! You have ${this.maxAttempts - this.attempts}more tries.`);
         }
         if (password !== this.password) {
             this.attempts++;
-            return this.accountError(`Wrong password! You have ${this.maxAttempts - this.attempt}more tries.`);
+            return this.accountError(`Wrong password! You have ${this.maxAttempts - this.attempts}more tries.`);
         }
         if (this.attempts = 0){
         return "Login successful!";
