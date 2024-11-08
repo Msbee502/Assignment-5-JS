@@ -4,6 +4,8 @@ const account = {
     lastName: "Andersson",
     balance: 500000,
     password: "Banana", 
+    attempts: 0, 
+    maxAttempts: 3,
 
 
     getBalance() {
@@ -38,14 +40,22 @@ const account = {
 
     // Login function to check account name and password with accountError function. 
     login(accountName, password) {
-        
+
+        if(this.attempts >= this.maxAttempts){ //This one checks if the account is locked.
+            return "Account is locked due to too many filed attempts to login. Please contact you bank.";
+        }
+    
         if (accountName !== this.accountName) {
-            return this.accountError("Login failed! You have two more tries.");
+            this.attempts++;
+            return this.accountError(`Wrong username! You have ${this.maxAttempts - this.attempt}more tries.`);
         }
         if (password !== this.password) {
-            return this.accountError("Login failed! You have two more tries.");
+            this.attempts++;
+            return this.accountError(`Wrong password! You have ${this.maxAttempts - this.attempt}more tries.`);
         }
+        if (this.attempts = 0){
         return "Login successful!";
+        }
     },
 
     accountError(message) {
@@ -68,6 +78,22 @@ const account = {
 
 function atm(){
     let exit = false;
+    let loggedIn = false;
+
+    while (!loggedIn) {
+        const accountName = prompt("Enter account name:");
+        const password = prompt("Enter password:");
+        
+        const loginMessage = account.login(accountName, password);
+        alert(loginMessage);
+        
+        // Check if login was successful
+        if (loginMessage === "Login successful!") {
+            loggedIn = true; // Set loggedIn to true to break the loop
+        } else {
+           return "Login failed due to too many attempts" // Optional: Handle failed login attempts (e.g., after a certain number of tries)
+        }
+    }
 
     while (!exit){ //while loop that continues until the user successfully logs in.
 
