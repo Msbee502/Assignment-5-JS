@@ -69,20 +69,20 @@ const account = {
 function atm(){
     let exit = false;
 
-    while (!exit){
+    while (!exit){ //while loop that continues until the user successfully logs in.
 
-    const choice = parseFloat (
+    const choice = parseFloat ( //prompts the user to enter their account name and password and then calls the account.login, which checks the credentials and returns a message.
         prompt (
             "Select a choice: 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit"
         )
     );
 
     switch (choice) {
-        case 1: alert(`Your balance is $${account.getBalance()}`);
+        case 1: alert(`Your balance is $${account.getBalance()}`); //Balance
         break;
 
         case 2: 
-        const depositAmount = parseFloat(prompt("Enter amount to deposit:"));
+        const depositAmount = parseFloat(prompt("Enter amount to deposit:")); //Prompt Deposit and calls account.deposit. The returns with the deposited amount.
         alert(account.deposit(depositAmount));
         break;
 
@@ -107,6 +107,6 @@ function atm(){
     }
 }
 
-console.log(atm());
+console.log(withdrawal());
 // console.log(account.exit ());
 // console.log(account.deposit(1000));
