@@ -107,6 +107,6 @@ function atm(){
     }
 }
 
-console.log(withdrawal());
+// console.log(atm());
 // console.log(account.exit ());
 // console.log(account.deposit(1000));
