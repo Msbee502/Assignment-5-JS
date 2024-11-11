@@ -53,7 +53,7 @@ const account = {
             this.attempts++;
             return this.accountError(`Wrong password! You have ${this.maxAttempts - this.attempts}more tries.`);
         }
-        if (this.attempts = 0){
+        if (this.attempts == 0){
         return "Login successful!";
         }
     },
@@ -90,10 +90,11 @@ function atm(){
         // Check if login was successful
         if (loginMessage === "Login successful!") {
             loggedIn = true; // Set loggedIn to true to break the loop
-        } else {
-           return "Login failed due to too many attempts" // Optional: Handle failed login attempts (e.g., after a certain number of tries)
-        }
+        // } else {
+        //    return "Login failed due to too many attempts" 
+        // }
     }
+}
 
     while (!exit){ //while loop that continues until the user successfully logs in.
 
@@ -108,7 +109,7 @@ function atm(){
         break;
 
         case 2: 
-        const depositAmount = parseFloat(prompt("Enter amount to deposit:")); //Prompt Deposit and calls account.deposit. The returns with the deposited amount.
+        const depositAmount = parseFloat(prompt("Enter amount to deposit:")); //Prompt Deposit and calls account.deposit. Then returns with the deposited amount.
         alert(account.deposit(depositAmount));
         break;
 
